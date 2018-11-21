@@ -94,16 +94,20 @@ namespace ConsoleApp1
             //int count=0;
             //foreach (var item in debtors)
             //{
-
             //    Console.WriteLine($" ({count}).=============================");
             //    item.ShowDebtor();
             //    ++count;
             //}
             var collection = debtors.Where(x => x.Email.Contains("rhyta.com") || x.Email.Contains("dayrep.com"));
-            foreach (var item in collection)
+            //foreach (var item in collection)//1
+            //{
+           // item.ShowDebtor();
+            //}
+            int currentyear = DateTime.Now.Year;
+            var collection2 = debtors.Where(x => currentyear - x.BirthDay.Year >= 26 && currentyear - x.BirthDay.Year <= 36);
+            foreach (var item in collection2)//2
             {
-                Console.WriteLine($"Email  :{item.Email} ");
-                Console.WriteLine($"item.Debt :{item.Debt} $");
+                item.ShowDebtor();
             }
         }
     }
