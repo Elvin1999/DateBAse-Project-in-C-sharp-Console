@@ -26,12 +26,13 @@ namespace ConsoleApp1
         public int Debt { get; set; }
         public void ShowDebtor()
         {
+
             Console.WriteLine($"Fullname :{FullName}");
             Console.WriteLine($"Birthday :{BirthDay.ToShortDateString()}");
             Console.WriteLine($"Phone :{Phone}");
             Console.WriteLine($"Email :{Email}");
             Console.WriteLine($"Address :{Address}");
-            Console.WriteLine($"Debt :{Debt}");
+            Console.WriteLine($"Debt :{Debt} $");
         }
         public override string ToString()
         {
@@ -42,6 +43,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             List<Debtor> debtors = new List<Debtor> {
             new Debtor("Shirley T. Qualls", DateTime.Parse("March 30, 1932"), "530-662-7732", "ShirleyTQualls@teleworm.us", "3565 Eagles Nest Drive Woodland, CA 95695", 2414),
             new Debtor("Danielle W. Grier", DateTime.Parse("October 18, 1953"), "321-473-4178", "DanielleWGrier@rhyta.com", "1973 Stoneybrook Road Maitland, FL 32751", 3599),
@@ -118,8 +120,14 @@ namespace ConsoleApp1
             //    Console.WriteLine($" =============================");
             //    item.ShowDebtor();
             //}
-            //var collection4 = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.Contains("7"));
-           // Console.WriteLine(collection4.Count()); 
+            //is not ready //var collection4 = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.Contains("7"));
+            // Console.WriteLine(collection4.Count()); 
+            var collection7 = debtors.Where(x => x.BirthDay.Month == 12 || x.BirthDay.Month == 2 || x.BirthDay.Month == 1);
+            foreach (var item in collection7)
+            {
+                    Console.WriteLine($" =============================");
+                    item.ShowDebtor();
+            }
         }
     }
 }
