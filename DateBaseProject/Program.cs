@@ -93,12 +93,13 @@ namespace ConsoleApp1
             new Debtor("Pamela H. Beauchamp", DateTime.Parse("November 20, 1959"), "801-559-6347", "PamelaHBeauchamp@jourrapide.com", "3239 Tori Lane Salt Lake City, UT 84104", 6588)
         };
 
-            //int count=0;
+            //int count = 0;
             //foreach (var item in debtors)
             //{
-            //    Console.WriteLine($" ({count}).=============================");
-            //    item.ShowDebtor();
             //    ++count;
+            //    Console.WriteLine($" ({count}).=============================");
+            //    item.ShowDebtor(); 
+
             //}
             var collection = debtors.Where(x => x.Email.Contains("rhyta.com") || x.Email.Contains("dayrep.com"));
             //foreach (var item in collection)//1
@@ -136,7 +137,6 @@ namespace ConsoleApp1
                 ++count2;
                 allDebt += item.Debt;
             }
-            Console.WriteLine(allDebt / count2);
             var collection8 = debtors.Where(x => x.Debt >= allDebt / count2);
             //foreach (var item in collection8)
             //{
@@ -153,14 +153,38 @@ namespace ConsoleApp1
             //9
             DateTime current = DateTime.Now;
             var collection11 = debtors.Where(x => !x.Phone.Contains("8"));
-            foreach (var item in collection11)
+            //foreach (var item in collection11)
+            //{
+            //    TimeSpan diff = current.Subtract(item.BirthDay);
+            //    var newsurname = item.FullName.Split(' ');
+            //    Console.WriteLine($"Surname -> {newsurname[2]} ");
+            //    Console.WriteLine($"Age -> {(int)diff.TotalDays/365}");
+            //    Console.WriteLine($"Dept -> {item.Debt} $");
+            //}
+            //11 is not ready
+            ////////////////////////////
+            ////////////////////////////
+            ////////////////////////////
+            //13 my algorithim
+            int count3 = 0; int max = 0; int copyindex = -1;
+            for (int i = 0; i < debtors.Count; i++)
             {
-                TimeSpan diff = current.Subtract(item.BirthDay);
-                var newsurname = item.FullName.Split(' ');
-                Console.WriteLine($"Surname -> {newsurname[2]} ");
-                Console.WriteLine($"Age -> {(int)diff.TotalDays/365}");
-                Console.WriteLine($"Dept -> {item.Debt} $");
+                for (int k = 0; k < debtors.Count; k++)
+                {
+                    if (debtors[i].BirthDay.Year == debtors[k].BirthDay.Year)
+                    {
+                        ++count3;
+
+                    }
+                }
+                if (count3 > max)
+                {
+                    max = count3;
+                    copyindex = i;
+                }
+                count3 = 0;
             }
+            Console.WriteLine($"Max count year {debtors[copyindex].BirthDay.Year} Max Count {max}");
         }
     }
 }
