@@ -113,11 +113,13 @@ namespace ConsoleApp1
             //}
 
             var collection3 = debtors.Where(x => x.Debt < 5000);
-            foreach (var item in collection3)
-            {
-                Console.WriteLine($" =============================");
-                item.ShowDebtor();
-            }
+            //foreach (var item in collection3)//3
+            //{
+            //    Console.WriteLine($" =============================");
+            //    item.ShowDebtor();
+            //}
+            //var collection4 = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.Contains("7"));
+           // Console.WriteLine(collection4.Count()); 
         }
     }
 }
