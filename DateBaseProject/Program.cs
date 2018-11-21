@@ -101,12 +101,21 @@ namespace ConsoleApp1
             var collection = debtors.Where(x => x.Email.Contains("rhyta.com") || x.Email.Contains("dayrep.com"));
             //foreach (var item in collection)//1
             //{
-           // item.ShowDebtor();
+            // Console.WriteLine($" ({count}).=============================");
+            //item.ShowDebtor();
             //}
             int currentyear = DateTime.Now.Year;
             var collection2 = debtors.Where(x => currentyear - x.BirthDay.Year >= 26 && currentyear - x.BirthDay.Year <= 36);
-            foreach (var item in collection2)//2
+            //foreach (var item in collection2)//2
+            //{
+            //Console.WriteLine($" ({count}).=============================");
+            //    item.ShowDebtor();
+            //}
+
+            var collection3 = debtors.Where(x => x.Debt < 5000);
+            foreach (var item in collection3)
             {
+                Console.WriteLine($" =============================");
                 item.ShowDebtor();
             }
         }
