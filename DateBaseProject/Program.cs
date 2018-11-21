@@ -122,11 +122,32 @@ namespace ConsoleApp1
             //}
             //is not ready //var collection4 = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.Contains("7"));
             // Console.WriteLine(collection4.Count()); 
-            var collection7 = debtors.Where(x => x.BirthDay.Month == 12 || x.BirthDay.Month == 2 || x.BirthDay.Month == 1);
-            foreach (var item in collection7)
+            //7
+            //var collection7 = debtors.Where(x => x.BirthDay.Month == 12 || x.BirthDay.Month == 2 || x.BirthDay.Month == 1);
+            //foreach (var item in collection7)
+            //{
+            //        Console.WriteLine($" =============================");
+            //        item.ShowDebtor();
+            //}
+            double allDebt = 0; int count = 0;
+            foreach (var item in debtors)
             {
-                    Console.WriteLine($" =============================");
-                    item.ShowDebtor();
+                ++count;
+                allDebt += item.Debt;
+            }
+            Console.WriteLine(allDebt / count);
+            var collection8 = debtors.Where(x => x.Debt >= allDebt / count);
+            //foreach (var item in collection8)
+            //{
+            //    Console.WriteLine($" =============================");
+            //    item.ShowDebtor();
+            //}
+            var collection9 = collection8.OrderByDescending(x => x.Debt);
+            var collection10 = collection9.OrderBy(x => x.FullName);//or it can be collection9.OrderBy(x => x.FullName);
+            foreach (var item in collection10)
+            {
+                Console.WriteLine($" =============================");
+                item.ShowDebtor();
             }
         }
     }
