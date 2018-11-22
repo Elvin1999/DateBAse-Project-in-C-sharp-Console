@@ -93,64 +93,55 @@ namespace ConsoleApp1
             new Debtor("Pamela H. Beauchamp", DateTime.Parse("November 20, 1959"), "801-559-6347", "PamelaHBeauchamp@jourrapide.com", "3239 Tori Lane Salt Lake City, UT 84104", 6588)
         };
 
-            //int count = 0;
-            //foreach (var item in debtors)
-            //{
-            //    ++count;
-            //    Console.WriteLine($" ({count}).=============================");
-            //    item.ShowDebtor(); 
-
-            //}
+            // //1
             var collection = debtors.Where(x => x.Email.Contains("rhyta.com") || x.Email.Contains("dayrep.com"));
-            //foreach (var item in collection)//1
+            //foreach (var item in collection17)
             //{
-            // Console.WriteLine($" ({count}).=============================");
-            //item.ShowDebtor();
+            //    item.ShowDebtor();
             //}
+
+
+            // //2
             int currentyear = DateTime.Now.Year;
             var collection2 = debtors.Where(x => currentyear - x.BirthDay.Year >= 26 && currentyear - x.BirthDay.Year <= 36);
-            //foreach (var item in collection2)//2
+            //foreach (var item in collection17)
             //{
-            //Console.WriteLine($" ({count}).=============================");
+            //    item.ShowDebtor();
+            //}
+            
+
+            // //3
+            var collection3 = debtors.Where(x => x.Debt < 5000);
+            //foreach (var item in collection17)
+            //{
             //    item.ShowDebtor();
             //}
 
-            var collection3 = debtors.Where(x => x.Debt < 5000);
-            //foreach (var item in collection3)//3
+
+            // // 5 is not ready //var collection4 = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.Contains("7"));
+          
+            
+            // //  //7
+            var collection7 = debtors.Where(x => x.BirthDay.Month == 12 || x.BirthDay.Month == 2 || x.BirthDay.Month == 1);
+            //foreach (var item in collection17)
             //{
-            //    Console.WriteLine($" =============================");
             //    item.ShowDebtor();
             //}
-            //is not ready //var collection4 = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.Contains("7"));
-            // Console.WriteLine(collection4.Count()); 
-            //7
-            //var collection7 = debtors.Where(x => x.BirthDay.Month == 12 || x.BirthDay.Month == 2 || x.BirthDay.Month == 1);
-            //foreach (var item in collection7)
-            //{
-            //        Console.WriteLine($" =============================");
-            //        item.ShowDebtor();
-            //}
-            //8
-            double allDebt = 0; int count2 = 0;
-            foreach (var item in debtors)
-            {
-                ++count2;
-                allDebt += item.Debt;
-            }
-            var collection8 = debtors.Where(x => x.Debt >= allDebt / count2);
-            //foreach (var item in collection8)
-            //{
-            //    Console.WriteLine($" =============================");
-            //    item.ShowDebtor();
-            //}
+
+
+            //  // //8
+            //var AllDebt = debtors.Sum(x => x.Debt);
+            //Console.WriteLine($"Average debt {AllDebt / debtors.Count} ");
+            //var collection8 = debtors.Where(x => x.Debt >= AllDebt / debtors.Count);
             //var collection9 = collection8.OrderByDescending(x => x.Debt);
             //var collection10 = collection9.OrderBy(x => x.FullName);//or it can be collection9.OrderBy(x => x.FullName);
-            //foreach (var item in collection10)
+            //foreach (var item in collection17)
             //{
-            //    Console.WriteLine($" =============================");
             //    item.ShowDebtor();
             //}
-            //9
+
+
+            //  //9
             DateTime current = DateTime.Now;
             var collection11 = debtors.Where(x => !x.Phone.Contains("8"));
             //foreach (var item in collection11)
@@ -161,30 +152,80 @@ namespace ConsoleApp1
             //    Console.WriteLine($"Age -> {(int)diff.TotalDays/365}");
             //    Console.WriteLine($"Dept -> {item.Debt} $");
             //}
-            //11 is not ready
-            ////////////////////////////
-            ////////////////////////////
-            ////////////////////////////
-            //13 my algorithim
-            int count3 = 0; int max = 0; int copyindex = -1;
-            for (int i = 0; i < debtors.Count; i++)
-            {
-                for (int k = 0; k < debtors.Count; k++)
-                {
-                    if (debtors[i].BirthDay.Year == debtors[k].BirthDay.Year)
-                    {
-                        ++count3;
 
-                    }
-                }
-                if (count3 > max)
-                {
-                    max = count3;
-                    copyindex = i;
-                }
-                count3 = 0;
-            }
-            Console.WriteLine($"Max count year {debtors[copyindex].BirthDay.Year} Max Count {max}");
+
+            //  //11 is not ready
+            ////////////////////////////
+
+            ////////////////////////////
+            // //13 my algorithim
+            //int count3 = 0; int max = 0; int copyindex = -1;
+            //for (int i = 0; i < debtors.Count; i++)
+            //{
+            //    for (int k = 0; k < debtors.Count; k++)
+            //    {
+            //        if (debtors[i].BirthDay.Year == debtors[k].BirthDay.Year)
+            //        {
+            //            ++count3;
+            //        }
+            //    }
+            //    if (count3 > max)
+            //    {
+            //        max = count3;
+            //        copyindex = i;
+            //    }
+            //    count3 = 0;
+            //}
+            //Console.WriteLine($"Max count year {debtors[copyindex].BirthDay.Year} Max Count {max}");
+
+
+            //  //14
+            //var collections15 = debtors.OrderByDescending(x => x.Debt);int counter = 0;
+            //foreach (var item in collections15)
+            //{
+            //    Console.WriteLine($" =============================");
+            //    ++counter;
+            //    item.ShowDebtor();
+            //    if (counter == 5) break;
+            //}
+
+
+            // //15
+            var AllDebt2 = debtors.Sum(x => x.Debt);
+            //Console.WriteLine(AllDebt2);
+
+
+            // //16
+            var collection16 = debtors.Where(x => x.BirthDay.Year >= 1941);
+            //foreach (var item in collection17)
+            //{
+            //    item.ShowDebtor();
+            //}
+
+
+            ////18 is not ready////18)Nomresinde tekrar reqemler olmayan borclularin ve onlarin borcunun meblegin cixartmaq
+
+
+            ////19 
+            current = DateTime.Now;
+            var collection17 = debtors.Where(x => (12-(current.Month - x.BirthDay.Month))*500>=x.Debt);
+            //int month = (int)((current - debtors[0].BirthDay).TotalDays / 365) * 12;
+            //int month = current.Month - debtors[1].BirthDay.Month;
+            //Console.WriteLine(12 - month);
+            //foreach (var item in collection17)
+            //{
+            //    item.ShowDebtor();
+            //}
+
+
+            ////20
+
+            //var collection18 = debtors.Where(x => x.FullName.Contains("s") && x.FullName.Contains("m") && x.FullName.Contains("i") && x.FullName.Contains("l") && x.FullName.Contains("e"));
+            //foreach (var item in collection18)
+            //{
+            //    item.ShowDebtor();
+                
+            //}
         }
     }
 }
