@@ -120,12 +120,12 @@ namespace ConsoleApp1
 
             // // 5
 
-            var mycollection = debtors.Where(x => x.FullName.Length >= 18&&x.Phone.IndexOf('7')!= x.Phone.LastIndexOf('7'));
-            foreach (var item in mycollection)
-            {
-                item.ShowDebtor();
+            var mycollection = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.IndexOf('7') != x.Phone.LastIndexOf('7'));
+            //foreach (var item in mycollection)
+            //{
+            //    item.ShowDebtor();
 
-            }
+            //}
 
             // //  //7
             var collection7 = debtors.Where(x => x.BirthDay.Month == 12 || x.BirthDay.Month == 2 || x.BirthDay.Month == 1);
@@ -162,7 +162,8 @@ namespace ConsoleApp1
 
             //  //11 is not ready
             ////////////////////////////
-
+            //var mycollection11 = debtors.Where(x => x.FullName.Split('.')[0] == (x.FullName.Split('.')[1]));
+                           
             ////////////////////////////
             // //13 my algorithim
             //int count3 = 0; int max = 0; int copyindex = -1;
