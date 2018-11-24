@@ -108,7 +108,7 @@ namespace ConsoleApp1
             //{
             //    item.ShowDebtor();
             //}
-            
+
 
             // //3
             var collection3 = debtors.Where(x => x.Debt < 5000);
@@ -118,9 +118,15 @@ namespace ConsoleApp1
             //}
 
 
-            // // 5 is not ready //var collection4 = debtors.Where(x => x.FullName.Length >= 18 && x.Phone.Contains("7"));
-          
-            
+            // // 5
+
+            var mycollection = debtors.Where(x => x.FullName.Length >= 18&&x.Phone.IndexOf('7')!= x.Phone.LastIndexOf('7'));
+            foreach (var item in mycollection)
+            {
+                item.ShowDebtor();
+
+            }
+
             // //  //7
             var collection7 = debtors.Where(x => x.BirthDay.Month == 12 || x.BirthDay.Month == 2 || x.BirthDay.Month == 1);
             //foreach (var item in collection17)
@@ -208,7 +214,7 @@ namespace ConsoleApp1
 
             ////19 
             current = DateTime.Now;
-            var collection17 = debtors.Where(x => (12-(current.Month - x.BirthDay.Month))*500>=x.Debt);
+            var collection17 = debtors.Where(x => (12 - (current.Month - x.BirthDay.Month)) * 500 >= x.Debt);
             //int month = (int)((current - debtors[0].BirthDay).TotalDays / 365) * 12;
             //int month = current.Month - debtors[1].BirthDay.Month;
             //Console.WriteLine(12 - month);
@@ -224,7 +230,7 @@ namespace ConsoleApp1
             //foreach (var item in collection18)
             //{
             //    item.ShowDebtor();
-                
+
             //}
         }
     }
